@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "creation": "2020-11-03 17:04:43.949612",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "package",
+  "package_2",
+  "item_code",
+  "customer",
+  "customer_name",
+  "carrier_est_weight",
+  "column_break_5",
+  "content",
+  "section_break_7",
+  "gross_weight",
+  "column_break_9",
+  "billable_qty_or_weight",
+  "column_break_12",
+  "item_price",
+  "section_break_14",
+  "sales_invoice",
+  "warehouse_receipt"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "package",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Package",
+   "options": "Parcel",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "content",
+   "fieldtype": "Text",
+   "label": "Content"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "columns": 1,
+   "description": "Gross weight of the package.",
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Gross Weight",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "TODO: Validate this rule: eval: doc.package == null || doc.customer_name != null",
+   "fetch_from": "package.customer",
+   "fetch_if_empty": 1,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "search_index": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice"
+  },
+  {
+   "columns": 1,
+   "description": "Estimated weight of the package as measured by the carrier (if available).",
+   "fetch_from": "package.carrier_est_weight",
+   "fetch_if_empty": 1,
+   "fieldname": "carrier_est_weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Carrier estimated weight (in pounds)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "item_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Item Price",
+   "non_negative": 1,
+   "options": "USD"
+  },
+  {
+   "description": "Quantity or Weight in Pounds.",
+   "fieldname": "billable_qty_or_weight",
+   "fieldtype": "Float",
+   "label": "Billable Quantity or Weight"
+  },
+  {
+   "fieldname": "warehouse_receipt",
+   "fieldtype": "Link",
+   "label": "Warehouse Receipt",
+   "options": "Warehouse Receipt"
+  },
+  {
+   "fetch_from": "package.tracking_number",
+   "fieldname": "package_2",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Package 2"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2022-08-08 10:45:56.277197",
+ "modified_by": "Administrator",
+ "module": "Shipment Management",
+ "name": "Cargo Shipment Receipt Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

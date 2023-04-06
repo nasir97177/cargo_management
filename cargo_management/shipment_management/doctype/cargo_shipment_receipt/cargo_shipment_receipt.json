@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:reference",
+ "creation": "2020-11-03 16:50:04.125725",
+ "description": "Cargo Shipment Receipt",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cargo_shipment",
+  "reference",
+  "mute_emails",
+  "c_column",
+  "status",
+  "column_break_3",
+  "departure_date",
+  "column_break_8",
+  "arrival_date",
+  "section_break_6",
+  "cargo_shipment_receipt_lines",
+  "gross_weight"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fetch_from": "cargo_shipment.reference",
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Reference",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "description": "Reference of the cargo shipment to be received.",
+   "fieldname": "cargo_shipment",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Cargo Shipment",
+   "options": "Cargo Shipment",
+   "read_only_depends_on": "eval: !doc.__islocal",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "columns": 2,
+   "default": "Awaiting Receipt",
+   "depends_on": "eval: !doc.__islocal",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Awaiting Receipt\nSorting\nFinished",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 2,
+   "description": "Real departure date of cargo shipment to his final destination.",
+   "fetch_from": "cargo_shipment.departure_date",
+   "fieldname": "departure_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Departure Date",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "description": "Real arrival date of cargo shipment to his final destination.",
+   "fieldname": "arrival_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Arrival Date"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "cargo_shipment_receipt_lines",
+   "fieldtype": "Table",
+   "label": "Packages in Cargo Shipment Receipt",
+   "options": "Cargo Shipment Receipt Line",
+   "reqd": 1
+  },
+  {
+   "description": "Billable gross weight of the cargo shipment receipt",
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight (in pounds)",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "mute_emails",
+   "fieldtype": "Check",
+   "label": "Don't Send Emails",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "c_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "links": [],
+ "modified": "2021-12-28 09:17:50.689199",
+ "modified_by": "Administrator",
+ "module": "Shipment Management",
+ "name": "Cargo Shipment Receipt",
+ "name_case": "UPPER CASE",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "cargo_shipment,status",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "timeline_field": "cargo_shipment",
+ "title_field": "reference",
+ "track_changes": 1
+}
